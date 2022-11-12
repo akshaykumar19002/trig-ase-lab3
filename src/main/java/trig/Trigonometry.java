@@ -1,5 +1,8 @@
 package trig;
 
+import excpetions.InvalidAngleException;
+import excpetions.InvalidInputException;
+
 public class Trigonometry {
 
 	public static enum TypeOfAngle {
@@ -7,7 +10,10 @@ public class Trigonometry {
 		DEGREE
 	}
 	
-	public static double factorial(int n) {
+	public static double factorial(int n) throws InvalidInputException {
+		if (n < 0) {
+			throw new InvalidInputException();
+		}
 		double factorial = 1;
 		for (int j = 2; j <= n; j++) {
 			factorial *= j;
@@ -19,9 +25,11 @@ public class Trigonometry {
 		return angle * Math.PI/180;
 	}
 	
-	public static double sin(double angle, TypeOfAngle type) {
+	public static double sin(double angle, TypeOfAngle type) throws InvalidAngleException, InvalidInputException {
 		if (type == TypeOfAngle.DEGREE)
 			angle = convertToRadian(angle);
+		if (angle < 0 || angle > 6.283)
+			throw new InvalidAngleException();
 		int n = 10;
 		int i; 
 		double result = 0;
@@ -31,9 +39,11 @@ public class Trigonometry {
 		return result;
 	}
 	
-	public static double cos(double angle, TypeOfAngle type) {
+	public static double cos(double angle, TypeOfAngle type) throws InvalidAngleException, InvalidInputException {
 		if (type == TypeOfAngle.DEGREE)
 			angle = convertToRadian(angle);
+		if (angle < 0 || angle > 6.283)
+			throw new InvalidAngleException();
 		int n = 10;
 		int i;
 		double result = 0;
@@ -44,7 +54,7 @@ public class Trigonometry {
 		return result;
 	}
 	
-	public static double tan(double angle, TypeOfAngle type) {
+	public static double tan(double angle, TypeOfAngle type) throws InvalidAngleException, InvalidInputException {
 		return sin(angle, type)/cos(angle, type);
 	}
 	
