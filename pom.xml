@@ -50,7 +50,7 @@
                 <configuration>
                     <suiteXmlFiles>
                         <!--suiteXmlFile>${testngpath}</suiteXmlFile-->
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                        <!-- <suiteXmlFile>testng.xml</suiteXmlFile> -->
                     </suiteXmlFiles>
                     <!--groups>a,ab</groups-->
                 </configuration>
