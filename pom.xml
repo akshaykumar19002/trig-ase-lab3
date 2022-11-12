@@ -6,8 +6,8 @@
   <name>TrigLib</name>
   <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
     </properties>
 
     <!--1 -->
@@ -16,6 +16,11 @@
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
+                <configuration>
+                	<includes>
+					    <include>**/*.java</include>
+					</includes>
+                </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-failsafe-plugin</artifactId>
@@ -41,4 +46,16 @@
         </dependency>
 
     </dependencies>
+    <reporting>
+	<plugins>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-surefire-report-plugin</artifactId>
+			<version>2.22.2</version>
+			<configuration>
+				<outputName>ASE-LAB3-Trig-Group2-Report</outputName>
+			</configuration>
+		</plugin>
+	</plugins>
+</reporting>
 </project>
